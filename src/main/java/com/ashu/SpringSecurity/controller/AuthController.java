@@ -1,6 +1,7 @@
 package com.ashu.SpringSecurity.controller;
 
 import com.ashu.SpringSecurity.entity.AuthRequest;
+import com.ashu.SpringSecurity.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,6 +15,9 @@ public class AuthController {
     @Autowired
     AuthenticationManager authenticationManager;
 
+    @Autowired
+    JWTUtil jwtUtil;
+
     @PostMapping("/authenticate")
     public String generateToken(@RequestBody AuthRequest authRequest) {
         try {
@@ -23,7 +27,7 @@ public class AuthController {
                             authRequest.getPassword()
                     )
             );
-            return "JWT";
+            return jwtUtil.generateToken(authRequest.getUsername());
         } catch (Exception e) {
             throw e;
         }
