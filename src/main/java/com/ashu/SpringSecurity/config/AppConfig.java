@@ -14,6 +14,6 @@ public class AppConfig {
     @Bean
     public CacheManager cacheManager() {
         // Simple in-memory cache
-        return new ConcurrentMapCacheManager("myCache");
+        return new ConcurrentMapCacheManager("weather");
     }
 }
