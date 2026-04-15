@@ -57,6 +57,5 @@ public class WeatherController {
     public String healthWeather(){
         return "Healthy";
     }
-
 }
 

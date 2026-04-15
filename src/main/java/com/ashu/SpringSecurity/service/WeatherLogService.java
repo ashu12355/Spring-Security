@@ -19,10 +19,7 @@ public class WeatherLogService {
         return weatherLogRepository.findById(id)
                 .orElseThrow(()->new RuntimeException("Log Not Found"));
     }
-
     public WeatherLog createLog(WeatherLog log){
         return  weatherLogRepository.save(log);
     }
-
-
 }

@@ -14,7 +14,6 @@ public enum Role {
     Role(Set<Permissions> permissions) {
         this.permissions = permissions;
     }
-
     public Set<Permissions> getPermissions() {
         return permissions;
     }
